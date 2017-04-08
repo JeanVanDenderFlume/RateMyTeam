@@ -1,0 +1,38 @@
+Okay a few notes.
+
+1) You made the code way more complicated than it needs to be, just about everywhere.  I focused on the Student specific stuff,
+    but you need to simplify a bit more.  Try to make the libraries work for you, vs against you.
+2) You should code to interfaces, NOT direct model calls.  If you program to interfaces, you can slap in a new backend
+    without having to change a lot of code.  The interface is your contract of sorts.
+
+This doesn't really touch on the linq thing, but I think your linq issue will go away when you simplify the model.  The whole 
+ApplicationUser was very difficult to really see the point of.  If you're dealing with login, you should look into using
+OATH or something else that's more off-the-shelf.
+
+And that gets into the general theme here.  Let libraries do your work for you.  Don't code stuff you don't have to.  libraries
+have been spending years trying to solve issues, and you should leverage their work.
+
+There's a book, Pro ASP.NET 4.0, which I read when I was just getting into this stuff.  The way they recommended project structure
+is much cleaner than what your template came from, so I recommend changing it.  In short...
+
+Application.Domain (a project)
+ -> Basically your model, the way I setup Models.  It handles all the business logic.
+Application.WebUI (another project)
+ -> The actual ASP.NET MVC project framework.  Models/controllers/etc.  With the Domain in place, you no longer have a need
+ for models.  that folder will be empty.  You can use it to help with 'glue', or simplifying your views.  A common case for
+ me is that if I have a view that needs to use 2 or more models, that aren't distinctly related, then I put a simple
+ glue class in place.  Basically:  Class Foo { Model1 model1; Model2 model2;}, then bind my views off that Foo class.
+ I strongly recommend you NEVER use ViewBags unless you absolutely need to....which is almost never if you follow this suggestion.
+ The reason for it is you can unit test this glue class where you can't unit test viewbags (those require integration tests).
+
+ Libraries to look up:
+ 1) Ninject - Injection control is very useful to force coding view interfaces and not from direct model calls.
+ 2) GraphDiff - This library isn't really maintained much any more, but it works really well regardless.  You don't have 
+ to have add/update code any more, you just pass it to graphdiff and it handles it for you.  I gave an example in EFStudent.
+
+ My final suggestion, and this I kinda hate to do....
+ I'd recommend, while you're learning the basics here, to drop back from Core.  Use .NET 4.6 instead of core.  Reason being
+ is that until the next update to Core (which will be in a few months) happens, a lot of hooks to old .net calls aren't in place.
+ and because of that, libraries aren't really ported over all that much yet.  Once the new version of core comes out, I suspect we'll
+ see really quick adoption.  The calls from your perspective, shoudn't really change much between the two.  Still, you can get in the habit
+ of using some really handy libraries to make your life easier.
