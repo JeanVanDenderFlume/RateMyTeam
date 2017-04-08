@@ -1,0 +1,38 @@
+@model RateMyTeam.ViewModels.StudentCreateStep1_ViewModel
+
+
+@{
+    ViewData["Title"] = "Create student procedure";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="CreateStep1">
+    <div class="form-horizontal">
+        <h4>Selecteer een gebruikers zonder een studentennummer</h4>
+        <hr />
+        
+        <div class="form-group">
+            <label asp-for="SelectedUserId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="SelectedUserId" asp-items="@(new SelectList(Model.ListUsers_Email,"Id","Email") )"></select>
+                <span asp-validation-for="SelectedUserId" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

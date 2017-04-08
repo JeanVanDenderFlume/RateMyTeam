@@ -1,0 +1,89 @@
+@model RateMyTeam.Data.Models.Projectperiod
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Projectperiod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="Id" />
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegeLearningYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CollegeLearningYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegePeriodNr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CollegePeriodNr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegePeriod_Startdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CollegePeriod_Startdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegePeriod_Enddate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CollegePeriod_Enddate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectteamCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProjectteamCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingInput_OpeningDatetime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RatingInput_OpeningDatetime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RatingInput_ClosingDatetime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RatingInput_ClosingDatetime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_at)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Created_at)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_at)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Updated_at)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

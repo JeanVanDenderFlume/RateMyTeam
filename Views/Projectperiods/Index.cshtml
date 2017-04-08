@@ -1,0 +1,95 @@
+@model IEnumerable<RateMyTeam.Data.Models.Projectperiod>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CollegeLearningYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CollegePeriodNr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CollegePeriod_Startdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CollegePeriod_Enddate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectteamCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RatingInput_OpeningDatetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RatingInput_ClosingDatetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Created_at)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Updated_at)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollegeLearningYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollegePeriodNr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollegePeriod_Startdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollegePeriod_Enddate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectteamCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RatingInput_OpeningDatetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RatingInput_ClosingDatetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Updated_at)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

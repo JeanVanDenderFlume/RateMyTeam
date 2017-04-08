@@ -1,0 +1,160 @@
+@model IEnumerable<RateMyTeam.ViewModels.StudentViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="CreateStep1">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+             
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Studentnumber )
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Initials)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Infix)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.User.Firstname)
+                </th>
+            
+                <th>
+                    @Html.DisplayNameFor(model => model.User.UserName)
+                </th>
+                
+          
+               
+            
+                @if(false) { 
+                    /*
+                <th>
+                    @Html.DisplayNameFor(model => model.User.EmailConfirmed)
+                </th>
+                */
+                }
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.User.PhoneNumber)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Mentorcode)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Mentor.User.Lastname)
+                </th>
+
+
+                @if(false) { 
+                    /*
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.PhoneNumberConfirmed)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.TwoFactorEnabled)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.LockoutEnd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.LockoutEnabled)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User.AccessFailedCount)
+                    </th>*/
+                }
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Studentnumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Initials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Infix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            
+          
+            
+            
+            
+       
+            <td>
+                @Html.DisplayFor(modelItem => item.User.PhoneNumber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Mentor.Tutorcode )
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Mentor.User.Lastname)
+            </td>
+
+            
+            @if (false) {
+                /*
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.EmailConfirmed)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.PhoneNumberConfirmed)
+                </td>            
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.TwoFactorEnabled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.LockoutEnd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.LockoutEnabled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.AccessFailedCount)
+                </td>*/
+            }
+
+            <td>
+                <a href="@Url.Action("Edit", "Students", new {id = item.Studentnumber} )">Edit1</a>
+
+                <a asp-controller="Students" asp-action="Edit" asp-route-id="@item.Studentnumber">Edit</a> |
+                <a asp-controller="Students" asp-action="Details" asp-route-id="@item.Studentnumber">Details</a> |
+                <a asp-controller="Students" asp-action="Delete" asp-route-id="@item.Studentnumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
