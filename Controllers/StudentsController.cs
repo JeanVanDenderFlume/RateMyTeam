@@ -16,10 +16,12 @@ namespace RateMyTeam.Controllers
 {
    
     public class StudentsController : Controller {
+
+        //Remove this
         private readonly ApplicationDbContext _context;
 
-        public StudentsController(ApplicationDbContext context) {
-            _context = context;
+        public StudentsController(IStudent studentContext) {
+            _context = studentContext;
         }
 
         // GET: Students
